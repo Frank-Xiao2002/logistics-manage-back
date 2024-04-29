@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LogisticsManageBackApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(LogisticsManageBackApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
