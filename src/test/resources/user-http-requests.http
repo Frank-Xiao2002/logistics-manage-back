@@ -1,0 +1,25 @@
+@username=user
+@password=password
+
+###
+POST http://localhost:8080/good
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "name": "tennis racket Wilson Pro Staff"
+}
+
+###
+http://localhost:8080/
+Authorization: Basic {{username}} {{password}}
+
+###
+PUT http://localhost:8080/good
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "id": "42a3c4a8-c85b-4bb7-bb64-0d66ede98124",
+  "name": "banana"
+}

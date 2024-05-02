@@ -1,0 +1,32 @@
+@username=admin
+@password=password
+
+###
+PUT http://localhost:8080/warehouse
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "id": "15f97304-1ecc-4eb9-88e1-c2a66dc40719",
+  "name": "warehouse-581",
+  "location": "Brazil",
+  "maxAmount": 600
+}
+
+###
+PUT http://localhost:8080/warehouse
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "id": "07b7bcc9-d064-4ffb-8d39-f42ef5351110",
+  "name": "warehouse-791",
+  "location": "China",
+  "maxAmount": 431
+}
+
+###
+http://localhost:8080/warehouse
+Authorization: Basic {{username}} {{password}}
+
+###
