@@ -1,0 +1,19 @@
+@username=user
+@password=password
+
+###retrieve all goods - first time
+GET http://localhost:8080/good
+Authorization: Basic {{username}} {{password}}
+
+###retrieve all goods - second time
+GET http://localhost:8080/good
+Authorization: Basic {{username}} {{password}}
+
+###retrieve all goods - third time
+GET http://localhost:8080/good
+Authorization: Basic {{username}} {{password}}
+
+###retrive good banana-42a3c4a8-c85b-4bb7-bb64-0d66ede98124
+GET http://localhost:8080/good/42a3c4a8-c85b-4bb7-bb64-0d66ede98124
+Authorization: Basic {{username}} {{password}}
+

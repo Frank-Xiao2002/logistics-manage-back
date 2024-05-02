@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.*;
 
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -52,4 +53,13 @@ public class Warehouse {
                 ", maxAmount=" + maxAmount +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Warehouse warehouse = (Warehouse) o;
+        return Objects.equals(id, warehouse.id) && Objects.equals(name, warehouse.name) && Objects.equals(location, warehouse.location) && Objects.equals(maxAmount, warehouse.maxAmount);
+    }
+
 }

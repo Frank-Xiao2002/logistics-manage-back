@@ -125,7 +125,7 @@ class WarehouseControllerTest {
     void t08updateWarehouse() throws Exception {
         Random random = new Random();
         warehouse.setMaxAmount(random.nextLong(100, 501));
-        var content = put("/warehouse/")
+        var content = put("/warehouse")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(warehouse));
         MvcResult mvcResult = mockMvc.perform(content)

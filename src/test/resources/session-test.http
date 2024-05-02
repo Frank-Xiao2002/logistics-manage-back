@@ -1,0 +1,30 @@
+###access without credential
+http://localhost:8080/good
+
+###access with credential user-password
+http://localhost:8080/good
+Authorization: Basic user password
+
+###access without credential
+http://localhost:8080/good
+
+###send a post request
+POST http://localhost:8080/good
+Content-Type: application/json
+
+{
+    "name": "DELL monitor"
+}
+
+###change credential and send post request
+POST http://localhost:8080/good
+Authorization: Basic admin password
+Content-Type: application/json
+
+{
+    "name": "DELL monitor"
+}
+
+###access with admin credential
+http://localhost:8080/warehouse
+

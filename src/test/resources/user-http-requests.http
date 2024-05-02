@@ -12,14 +12,11 @@ Authorization: Basic {{username}} {{password}}
 
 ###
 http://localhost:8080/
-Authorization: Basic {{username}} {{password}}
+
 
 ###
-PUT http://localhost:8080/good
-Authorization: Basic {{username}} {{password}}
-Content-Type: application/json
+GET http://localhost:8080/good
 
-{
-  "id": "42a3c4a8-c85b-4bb7-bb64-0d66ede98124",
-  "name": "banana"
-}
+
+###
+GET http://localhost:8080/warehouse
