@@ -44,7 +44,7 @@ public class GoodStorage {
      * Default toString method for GoodStorage.
      * It returns the id, warehouse id, good id and amount of the good storage.
      *
-     * @return a string representation containing {@link GoodStorage}'s id, warehouse id, good id & amount
+     * @return a string representation containing {@link GoodStorage}'s id, warehouse id, good id and amount
      * @see Good
      * @see Warehouse
      */

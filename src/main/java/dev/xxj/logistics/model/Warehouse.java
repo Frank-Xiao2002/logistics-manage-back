@@ -42,7 +42,7 @@ public class Warehouse {
      * Default toString method for Warehouse.
      * It returns the id, name, location and max amount of the warehouse.
      *
-     * @return a string representation containing warehouse's id, name, location & max amount
+     * @return a string representation containing warehouse's id, name, location and max amount
      */
     @Override
     public String toString() {

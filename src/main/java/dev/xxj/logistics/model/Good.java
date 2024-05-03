@@ -34,7 +34,7 @@ public class Good {
      * Default toString method for Good.
      * It returns the id and name of the good.
      *
-     * @return a string representation containing good's id & name
+     * @return a string representation containing good's id and name
      */
     @Override
     public String toString() {
