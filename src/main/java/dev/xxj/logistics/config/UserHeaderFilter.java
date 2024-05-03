@@ -10,6 +10,16 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Filter to add the current logged-in user to the response headers.
+ * <p>
+ * It extends from {@link OncePerRequestFilter} so that the current logged-in user
+ * is added to the response headers in every {@link HttpServletResponse}.
+ *
+ * @author Frank-Xiao
+ * @see OncePerRequestFilter
+ * @see HttpServletResponse
+ */
 @Component
 public class UserHeaderFilter extends OncePerRequestFilter {
 
@@ -20,9 +30,10 @@ public class UserHeaderFilter extends OncePerRequestFilter {
      * @param response    The response associated with the request
      * @param filterChain Provides access to the next filter in the chain for this filter
      *                    to pass the request and response to for further processing
-     * @throws ServletException
-     * @throws IOException
+     * @throws ServletException If an exception has occurred that interferes with the filter's normal operation
+     * @throws IOException      If an I/O error occurs during the processing of the request
      */
+    @SuppressWarnings("NullableProblems")
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {

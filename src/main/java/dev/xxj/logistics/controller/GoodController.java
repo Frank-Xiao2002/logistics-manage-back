@@ -10,6 +10,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * GoodController  class is a controller class that handles all the requests related to goods.
+ * <p>
+ * It provides the following functionalities:
+ * 1. Get all goods
+ * 2. Update a good
+ * 3. Add a good
+ * 4. Delete a good
+ * 5. Get a good by id
+ * 6. Get a good by name
+ * 7. Get locations of a good
+ * 8. Get total amount of a good
+ * 9. Move a good
+ * 10. Store a good
+ * 11. Retrieve a good
+ * 12. Get good storages
+ *
+ * @author Frank-Xiao
+ */
 @RestController
 @RequestMapping("/good")
 public class GoodController {

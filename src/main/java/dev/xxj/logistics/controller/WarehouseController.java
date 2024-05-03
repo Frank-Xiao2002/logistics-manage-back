@@ -11,6 +11,20 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * WarehouseController class is a controller class that handles all the requests related to warehouses.
+ * <p>
+ * It provides the following functionalities:
+ * 1. Add a warehouse
+ * 2. Get all warehouses
+ * 3. Get a warehouse by id
+ * 4. Delete a warehouse
+ * 5. Update a warehouse
+ * 6. Check if a warehouse is full
+ * 7. Get the existing amount of a warehouse
+ *
+ * @author Frank-Xiao
+ */
 @RestController
 @RequestMapping("/warehouse")
 public class WarehouseController {

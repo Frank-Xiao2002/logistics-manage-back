@@ -51,7 +51,7 @@ public class WarehouseServiceImpl implements WarehouseService {
 
     @SuppressWarnings("SpringCacheableMethodCallsInspection")
     @Override
-//    @CachePut()
+    @CachePut()
     public Warehouse updateWarehouse(Warehouse warehouse) {
         return Objects.nonNull(warehouse.getId()) && Objects.nonNull(getWarehouseById(warehouse.getId())) ?
                 warehouseRepository.save(warehouse) : null;
