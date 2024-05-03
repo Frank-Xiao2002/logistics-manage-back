@@ -1,0 +1,401 @@
+openapi: "3.1.0"
+info:
+  title: "logistics_manage_back API"
+  description: "OpenAPI description for logistics management system"
+  version: "1.0.0"
+servers:
+  - url: "http://localhost:8080"
+    description: "Local server"
+paths:
+  /good:
+    put:
+      summary: "update good"
+      operationId: "updateGood"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Good"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Good"
+    post:
+      summary: "add good"
+      operationId: "addGood"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Good"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Good"
+    get:
+      summary: "get all good"
+      operationId: "getAllGoods"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Good"
+  /good/move:
+    post:
+      summary: "move good between warehouses"
+      operationId: "moveGood"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MoveDTO"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+  /good/store:
+    post:
+      summary: "store good into warehouse"
+      operationId: "storeGood"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GoodStorageDto"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+  /good/retrieve:
+    post:
+      summary: "retrieve good from warehouse"
+      operationId: "retrieveGood"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GoodStorageDto"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+  /good/{id}:
+    delete:
+      summary: "delete good by id"
+      operationId: "deleteGood"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Void"
+    get:
+      summary: "get good by id"
+      operationId: "getGoodById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Good"
+  /good/name/{name}:
+    get:
+      summary: "get good by name"
+      operationId: "getGoodByName"
+      parameters:
+        - name: "name"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Good"
+  /good/locations/{id}:
+    get:
+      summary: "get good's locations"
+      description: "Get all storing warehouses of a specific good by its id"
+      operationId: "getLocations"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Warehouse"
+  /good/amount/{id}:
+    get:
+      summary: "get the amount of a good by id"
+      operationId: "getTotalAmount"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int64"
+  /good/storages/{goodId}:
+    get:
+      summary: "get all GoodStorage objects related to a good"
+      operationId: "getGoodStorages"
+      parameters:
+        - name: "goodId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/GoodStorage"
+  /warehouse:
+    put:
+      summary: "update warehouse"
+      operationId: "updateWarehouse"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Warehouse"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Warehouse"
+    post:
+      summary: "add warehouse"
+      operationId: "addWarehouse"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Warehouse"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Warehouse"
+    get:
+      summary: "get all warehouses"
+      operationId: "getAllWarehouses"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Warehouse"
+  /warehouse/{id}:
+    delete:
+      summary: "delete a warehouse"
+      operationId: "deleteWarehouse"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Warehouse"
+    get:
+      summary: "get warehouse by id"
+      operationId: "getWarehouseById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Warehouse"
+  /warehouse/full/{id}:
+    get:
+      summary: "determine whether a warehouse is full or not"
+      operationId: "isFull"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+  /warehouse/amount/{id}:
+    get:
+      summary: "get a warehouse's current storage amount"
+      operationId: "getExistAmount"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+components:
+  schemas:
+    Good:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          format: "uuid"
+        name:
+          type: "string"
+    MoveDTO:
+      type: "object"
+      properties:
+        fromId:
+          type: "string"
+          format: "uuid"
+        toId:
+          type: "string"
+          format: "uuid"
+        goodId:
+          type: "string"
+          format: "uuid"
+        amount:
+          type: "integer"
+          format: "int64"
+    GoodStorageDto:
+      type: "object"
+      properties:
+        warehouseId:
+          type: "string"
+          format: "uuid"
+        goodId:
+          type: "string"
+          format: "uuid"
+        amount:
+          type: "integer"
+          format: "int64"
+    Void:
+      type: "object"
+      properties: { }
+    Warehouse:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          format: "uuid"
+        name:
+          type: "string"
+        location:
+          type: "string"
+        maxAmount:
+          type: "integer"
+          format: "int64"
+    GoodStorage:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          format: "uuid"
+        warehouse:
+          $ref: "#/components/schemas/Warehouse"
+        good:
+          $ref: "#/components/schemas/Good"
+        amount:
+          type: "integer"
+          format: "int64"
