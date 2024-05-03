@@ -46,6 +46,7 @@ This project uses the following key dependencies:
 - Spring Web
 - Spring Validation
 - Spring Cache Abstraction
+- Spring Session JDBC
 - Lombok
 - Thymeleaf
 
